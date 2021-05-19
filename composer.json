@@ -1,0 +1,14 @@
+{
+  "name": "aliaksei/db-seeder",
+  "require": {
+    "fzaninotto/faker": "^1.5",
+    "ext-pdo": "*"
+  },
+  "description": "",
+  "authors": [
+    {
+      "name": "Alex Dzyuba",
+      "email": "alexeydzyuba27@gmail.com"
+    }
+  ]
+}
