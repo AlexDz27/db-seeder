@@ -8,14 +8,14 @@ require_once 'db.php';
 $faker = Faker\Factory::create();
 
 $stmt1 = $pdo->query('SELECT COUNT(*) FROM ' . TABLE_NAME);
-$rowsCount = $stmt1->fetch()[0];
+$rowsCount = (int) $stmt1->fetch()[0];
 
 $errors = [];
 for ($i = 1; $i <= $rowsCount; $i++) {
   $dateObj = $faker->dateTimeThisDecade();
   $date = $dateObj->format('Y-m-d H:i:s');
 
-  $sql = "UPDATE " . TABLE_NAME . " SET contract_date = '{$date}'";
+  $sql = "UPDATE " . TABLE_NAME . " SET contract_date = '{$date}' WHERE id = {$i}";
   // Should be 1, not 0
   $rowsAffected = $pdo->exec($sql);
 
